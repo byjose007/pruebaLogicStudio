@@ -1,0 +1,53 @@
+<div class="row" style="padding: 5px;">
+  <div class="col col-12" style="text-align: center!important;">
+
+    <mat-card style="background-color: white; min-height: 88vh;">
+      <mat-card-header class="content">
+      </mat-card-header>
+      <mat-card-content class="padre" style="min-height: 60vh!important;">
+        <div class="padre" style="min-width: 100%!important;">
+          <div class="hijo" style="min-width: 100%!important;">
+            <div [hidden]="verProceso">
+              <h1>Bienvenido(a)!</h1>
+              <h3>Comience su proceso de {{tipo}} de {{nombreDocumento}}.</h3>
+            </div>
+            <div [hidden]="documentoexpiro">
+
+              <br>
+              <img src="assets/images/documentovencido.jpg" style="width: 80%; max-width: 400px;">
+              <br>
+              <span style="color: #046DAF; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:25px ;" > <b>Su solicitud de proceso no se encuentra disponible.</b></span>
+                
+            </div>
+            <div [hidden]="documentofirmado">
+
+              <br>
+              <img src="assets/images/documentofirmado.png" style="width: 80%; max-width: 400px;">
+              <br> <br>
+              <span style="color: #046DAF; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:25px ;" > <b>Parece que este documento ya fue procesado.</b></span>
+             
+             <!--  <button pButton type="button" label="Ver Documento" class="ui-button-raised"
+                style="width: 250px;font-size: medium" (click)="VerDocumento()"></button>-->
+            </div>
+            <div [hidden]="documentoNoEncontrado">
+              <img src="assets/images/documentonoencontrado.png" style="width: 100%; max-width: 400px;">
+              <br><br>
+              <span style="color: #046DAF; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:25px ;" > <b>Documento no encontrado.</b></span>
+
+
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div [hidden]="verProceso">
+          <p>
+            
+            <button pButton type="button" label="Continuar" class="ui-button-raised color-green"
+              style="width: 250px;font-size: large" (click)="Siguiente()"></button>
+          </p>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

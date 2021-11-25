@@ -1,0 +1,108 @@
+<div class="row" style="padding: 5px;">
+  <div class="col col-12" style="text-align: center!important;">
+
+    <mat-card style="background-color: white; min-height: 88vh;">
+      <mat-card-header class="content">
+      </mat-card-header>
+      <mat-card-content class="padre" style="min-height: 60vh!important;">
+        <div class="padre" style="min-width: 100%!important;">
+          <div style="min-width: 100%!important;">
+            <div class="row">
+              <div class="col">
+                <h1>Prueba de Vida</h1>
+                <div  [hidden]="vergraba">
+                Pulse grabar y diga la siguiente frase:                
+              </div>
+              <div [hidden]="verbotn">
+                
+                Revisa tu prueba de vida, en caso de no ser correcta vuelva a intentarlo. 
+                <br>              
+              </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <video #video class="video" width="100%" style="max-width: 400px;" type="video/webm" 
+                      [hidden]="vergraba"></video>
+                      <div style=" display: flex;
+                      justify-content: center;">
+                      <div class="content" [hidden]="vergraba" style="text-align: justify!important; max-width: 400px;">
+                      <br>
+                      <b> 
+                        <div [hidden]="textovida">
+                          Esta es una prueba para la funcionalidad de aceptación de prueba de vida, video donde el cliente se graba leyendo un texto dado por la empresa.
+                        </div>
+                        <div [hidden]="!textovida">
+                          {{textovida}}
+                        </div>
+                      </b>
+                    </div>
+                  </div>
+                    <video width="100%" style="max-width: 400px;" type="video/webm" class="video" controls=""
+                      [src]="videopreview" [hidden]="verPreview"></video>
+
+                  </div>
+
+                  <div>
+                    <webcam [width]="0" [height]="0"   [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+                       [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
+                       [videoOptions]="videoOptions" [imageQuality]="1" (cameraSwitched)="cameraWasSwitched($event)"
+                       (initError)="handleInitError($event)"> 
+                    </webcam>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div [hidden]="verbotn">
+                      <button pButton type="button" label="Ver Prueba de vida" (click)="download()"
+                        class="ui-button-raised ui-button-secondary"></button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+
+
+            <div class="row">
+              <div class="col">
+                <div [hidden]="vergraba">
+                  <div [hidden]="botonplay">
+                    <button pButton type="button" class="btn btn-danger btn-circle btn-xl" icon="pi pi-circle-off" 
+                    (click)="grabar()"></button>
+                  </div>
+                  <div [hidden]="botonstop">
+                    <button pButton type="button" [disabled]="buttonDisabled" class="btn btn-danger btn-circle btn-xl" icon="pi pi-circle-on" style="background-color: red!important;"
+                    (click)="grabar()"></button>
+                  </div>
+                 
+                </div>
+                <div [hidden]="verPreview">
+                  <button pButton  type="button" class="btn btn-danger btn-circle btn-xl" icon="pi pi-undo" 
+                    (click)="undo()">
+                  </button>
+                  <br><br>
+                  Al presionar este botón comenzará una nueva grabación.
+                </div>
+               
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div  [hidden]="verPreview">
+          <p>
+            <button pButton type="button" label="Continuar" class="ui-button-raised"
+                style="width: 250px;font-size: large;" (click)="Siguiente()"></button>
+        </p>
+        </div>
+
+      </mat-card-actions>
+    </mat-card>

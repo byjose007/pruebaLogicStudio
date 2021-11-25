@@ -1,0 +1,36 @@
+<div class="row" style="padding: 5px;">
+  <div class="col col-12" style="text-align: center!important;">
+
+    <mat-card style="background-color: ghostwhite; min-height: 88vh;">
+      <mat-card-header class="content">
+      </mat-card-header>
+      <mat-card-content class="padre" style="min-height: 60vh!important;">
+       
+        <div  class="padre" style="min-width: 100%!important;">
+          <div class="hijo" style="min-width: 100%!important;">
+          <h1>Ingrese su firma</h1>
+                 <div class="wrapper ">
+              <img src="assets/images/firma.jpg"  />
+              <signature-pad class="signature-pad" [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
+                (onEndEvent)="drawComplete()"></signature-pad>
+            </div>
+            
+
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="row">
+          <div class="col">
+            <button pButton type="button" label="Limpiar" class="ui-button-raised" style="font-size: medium"
+              (click)="Limpiar()"></button>
+              &nbsp;&nbsp;
+            <button pButton type="button" label="Terminar de firmar" class="ui-button-raised" style="font-size: medium"
+              (click)="Siguiente()"></button>
+          </div>
+        </div>
+
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

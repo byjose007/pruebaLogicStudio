@@ -1,0 +1,125 @@
+#chart {
+    height: inherit;
+    width: inherit;
+
+    
+}
+.bar {
+    fill: steelblue;
+}
+
+.bar:hover {
+    fill: brown;
+}
+
+.axis--x path {
+    display: none;
+}
+
+.mat-card {
+    margin-bottom: 30px;
+    height: 250px;
+    color: #4B4F56;
+  }
+  .toolbar {
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+    cursor: default;
+}
+
+.toolbar-icon {
+  width: 26px;
+  height: 26px;
+  font-size: 26px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+
+
+.toolbar a {
+  color: #263238;
+}
+
+.main-container {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 24px;
+  position: relative;
+}
+
+.mat-icon svg {
+  height: 24px;
+  width: 24px;
+}
+
+
+.toolbar {
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+}
+svg.material-icons {
+height: 24px;
+width: auto;
+}
+
+svg.material-icons:not(:last-child) {
+margin-right: 8px;
+}
+
+
+
+svg#rocket {
+width: 80px;
+position: absolute;
+left: -10px;
+top: -24px;
+}
+
+svg#rocket-smoke {
+height: 100vh;
+position: absolute;
+top: 10px;
+right: 180px;
+z-index: -10;
+}
+
+
+svg#clouds {
+position: fixed;
+bottom: -160px;
+left: -230px;
+z-index: -10;
+width: 1920px;
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 767px) {
+
+
+svg#rocket-smoke {
+    right: 120px;
+    transform: rotate(-5deg);
+}
+}
+
+@media screen and (max-width: 575px) {
+svg#rocket-smoke {
+    display: none;
+    visibility: hidden;
+}
+}
+.padre {
+  /* IMPORTANTE */
+  text-align: center;
+}

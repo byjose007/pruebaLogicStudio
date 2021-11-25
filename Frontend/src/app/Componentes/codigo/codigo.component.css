@@ -1,0 +1,13 @@
+.padre {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: center ;
+ }
+ .hijo {
+    line-height: 200px; 
+ }
+ input[type=number]::-webkit-inner-spin-button {
+   -webkit-appearance: none,
+   
+ }

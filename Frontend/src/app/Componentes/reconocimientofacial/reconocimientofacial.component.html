@@ -1,0 +1,66 @@
+<div class="row"
+  style="padding: 5px;background-color: #ffffff!important;padding-bottom: 20px;padding-top: 20px; min-height: 80vh;">
+  <div class="col col-12" style="text-align: center!important;background-color: #ffffff!important;">
+
+    <div class="padre" style="min-width: 100%!important;">
+      <div class="hijo" style="min-width: 100%!important;">
+
+        <div class="snapshot" *ngIf="tomofoto" style="background-color: #ffffff!important;">
+          <br>
+          <img [src]="webcamImage" width="80%" style="max-width: 400px;" height="auto" />
+          <br>
+          <br>
+          <button pButton type="button" class="btn btn-danger btn-circle btn-xl" icon="pi pi-undo"
+            (click)="nuevointento()"></button>
+          <br><br>
+          Presione el botón para volver a tomar la foto.
+        </div>
+
+        <div style="background-color: #ffffff!important; height: auto;" [hidden]="tomofoto" [hidden]="videocaptura">
+          <div class="content">
+
+            <div class="terminal">
+
+             
+              
+              <video #video id="webcam" height="100%" width="100%" style="max-width:600px ;position: relative;" autoplay
+                controles="true" type="video/webm" muted playsinline></video>
+              <canvas #overlayVid style="padding-top: 30px" class="overlay"> </canvas>
+
+
+            </div>
+
+          </div>
+          <div *ngIf="comenzo">
+            <h3>Sonria por favor.</h3>
+          </div>
+
+        </div>
+        <br>
+
+        <div [hidden]="comenzo">
+          <br> <br>
+          <img src="assets/images/reco.png" width="70%" style="max-width: 400px;" height="auto" />
+          <br>
+          <button pButton type="button" label="Comenzar reconocimiento" class="ui-button-raised"
+            style="width: 250px;font-size: large" (click)="detectar()" [disabled]="comenzo"></button>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <div style="background-color: #ffffff!important;">
+      <div *ngIf="webcamImage">
+        <p>
+
+          <button pButton type="button" label="Continuar" class="ui-button-raised" style="width: 250px;font-size: large"
+            (click)="Siguiente()"></button>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="assets/face-api.js"></script>

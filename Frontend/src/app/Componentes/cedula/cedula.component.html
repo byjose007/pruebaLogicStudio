@@ -1,0 +1,43 @@
+<div class="row" style="padding: 5px;">
+  <div class="col col-12" style="text-align: center!important;">
+
+    <mat-card style="background-color: white; min-height: 88vh;" > 
+      <mat-card-header class="content">
+      </mat-card-header>
+      <mat-card-content class="padre" style="min-height: 60vh!important;">
+      <div class="padre" style="min-width: 100%!important;">
+        <div class="hijo" style="min-width: 100%!important;">
+          <div class="row">
+            <div class="col">
+              <br>
+              <img src="assets/images/cfrontal.png" width="80%" style="max-width: 350px;" height="auto" />
+              <br>
+              <img [src]="ceduFrontal" width="100%" style="max-width: 400px;" height="auto" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <br>
+              <img src="assets/images/cposterior.png" width="80%" style="max-width: 350px;" height="auto" />
+              <br>
+              <img [src]="ceduPosterior" width="100%" style="max-width: 400px;" height="auto" />
+            </div>
+          </div>
+
+          <button pButton type="button" class="btn btn-danger btn-circle btn-xl" icon="pi pi-undo"
+            (click)="volverTomar()"></button>
+            <br><br>
+            Presione el botón para volver a intentar.
+
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+
+      <p>
+        <button pButton type="button" label="Continuar" class="ui-button-raised" style="width: 250px;font-size: large;"
+          (click)="Siguiente()"></button>
+      </p>
+
+    </mat-card-actions>
+  </mat-card>

@@ -1,0 +1,12 @@
+.padre {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: center ;
+ }
+
+ .color-green{
+    background: green;
+ }
+ 
+ 

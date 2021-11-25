@@ -1,0 +1,78 @@
+<div class="row" style="padding: 5px;">
+  <div class="col col-12" style="text-align: center!important;">
+
+    <mat-card style="background-color: ghostwhite; min-height: 88vh;">
+      <mat-card-header class="content">
+      </mat-card-header>
+      <mat-card-content class="padre" style="min-height: 60vh!important;">
+        <div class="padre" style="min-width: 100%!important;">
+          <div class="hijo" style="min-width: 100%!important; ">
+            <div [hidden]="verpdf">
+              Si está de acuerdo con el contenido {{tipo}} {{documento}} {{docreferencia}} presione el botón "Aceptar", caso
+              contrario presione "Rechazar" para salir del proceso.<br><br>
+              <div [hidden]="tipo64">
+              <pdf-viewer  [src]="pdfSrc" [render-text]="true" style="display: block;" [autoresize]="true" [original-size]="false"   [show-borders]="true"  ></pdf-viewer>
+            </div>
+              <div [innerHTML]="Docurl" [hidden]="tipoURL"> </div>
+              <br>
+            </div>
+            <div [hidden]="boton">
+              <div class="ui-g ui-fluid ">
+                <div class="ui-g-6">
+                  <button pButton type="button" label="Rechazar" class="ui-button-raised"
+                    style="font-size: large; max-width:200px ;" (click)="CancelarProceso()"></button>
+                </div>
+                <div class="ui-g-6">
+                  <button pButton type="button" label="Aceptar" class="ui-button-raised"
+                    style="font-size: large; max-width:250px ;" (click)="firmar()"></button>
+                </div>
+              </div>
+            </div>
+            <div [hidden]="terminos">
+              
+              <h1>Acción solicitada</h1>
+              Esta acción es solicitada en este espacio como prueba legal de que has aceptado el contenido.
+              <br><br>
+
+              <p-checkbox [(ngModel)]="nsiguiente" binary="true"
+                label="He leído en su totalidad el documento y acepto las condiciones del mismo." (onChange)="change()">
+              </p-checkbox>
+
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div [hidden]="siguiente">
+          <p>
+          
+            <button pButton type="button" [label]="botonNombre" class="ui-button-raised"
+              style="width: 250px;font-size: large" (click)="Siguiente()"></button>
+          </p>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+<p-toast position="center" key="c2" (onClose)="onReject()" [baseZIndex]="6000" modal="true">
+  <ng-template let-message pTemplate="message">
+    <div style="text-align: center">
+      <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+      
+      <p>{{message.detail}}</p>
+      Motivo:<br>
+      <textarea rows="5" cols="30" pInputTextarea autoResize="autoResize" maxlength="150"
+        [(ngModel)]="motivo"></textarea>
+
+    </div>
+    <div class="ui-g ui-fluid ">
+      <div class="ui-g-6">
+        <button type="button" pButton (click)="onEnendido()" label="Si" class="ui-button-primary"
+          [disabled]="!motivo"></button>
+      </div>
+      <div class="ui-g-6">
+        <button type="button" pButton (click)="onReject()" label="No" class="ui-button-primary"></button>
+      </div>
+    </div>
+  </ng-template>
+</p-toast>

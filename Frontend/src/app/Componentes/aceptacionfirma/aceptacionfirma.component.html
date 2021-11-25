@@ -1,0 +1,59 @@
+<div class="row" style="padding: 5px;">
+    <div class="col col-12" style="text-align: center!important;">
+  
+      <mat-card style="background-color: ghostwhite; min-height: 88vh;">
+        <mat-card-header class="content">
+        </mat-card-header>
+        <mat-card-content class="padre" style="min-height: 60vh!important;">
+          <div class="padre" style="min-width: 100%!important;">
+            <div class="hijo" style="min-width: 100%!important; ">
+              
+           
+              <div [hidden]="terminos">
+  
+                <h1>Firma solicitada</h1>
+              Esta acción es solicitada en este espacio como prueba legal de que has aceptado el contenido.
+              <br><br>
+  
+                <p-checkbox [(ngModel)]="nsiguiente" binary="true"
+                  label="He leído en su totalidad el documento y acepto las condiciones del mismo." (onChange)="change()">
+                </p-checkbox>
+  
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <div [hidden]="siguiente">
+            <p>
+            
+              <button pButton type="button" [label]="botonNombre" class="ui-button-raised"
+                style="width: 250px;font-size: large" (click)="Siguiente()"></button>
+            </p>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  <p-toast position="center" key="c2" (onClose)="onReject()" [baseZIndex]="6000">
+    <ng-template let-message pTemplate="message">
+      <div style="text-align: center">
+        <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+        <h3>{{message.summary}}</h3>
+        <p>{{message.detail}}</p>
+        Motivo:<br>
+        <textarea rows="5" cols="30" pInputTextarea autoResize="autoResize" maxlength="150"
+          [(ngModel)]="motivo"></textarea>
+  
+      </div>
+      <div class="ui-g ui-fluid ">
+        <div class="ui-g-6">
+          <button type="button" pButton (click)="onEnendido()" label="Si" class="ui-button-primary"
+            [disabled]="!motivo"></button>
+        </div>
+        <div class="ui-g-6">
+          <button type="button" pButton (click)="onReject()" label="No" class="ui-button-primary"></button>
+        </div>
+      </div>
+    </ng-template>
+  </p-toast>
