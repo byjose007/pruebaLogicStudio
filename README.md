@@ -7,7 +7,7 @@ Este proyecto se generó con Angular CLI & Nodejs
 ## INSTALACIÓN
 Para levantar el proyecto, es necesario descargar e instalar las dependencias tanto el el proyecto Frontend como en el Backend 
 
-  Descargar las dependencias.
+  Instalar las dependencias.
   ```
   npm install
   ```
